@@ -22,7 +22,6 @@ print("Array is:", arr)
 for i in range(1,len(arr)):
     val=arr[i]
     j=i
-    swap=i
     while(j>0 and arr[j-1]>arr[j] ): #contiuously swap until ith element goes in corect slot, or you can find the index and then insert that there
         arr[j-1],arr[j]=arr[j],arr[j-1]
         j-=1
