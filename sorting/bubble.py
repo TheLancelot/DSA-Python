@@ -10,6 +10,7 @@ arr=(input("Input an array: "))
 arr= list(map(int, arr.split()))
 print("Array is:", arr)
 
+#for the loop structuring think of how you want tht iterations and comparisions to be done and then write the conditions
 for i in range(len(arr)):
     #for every i the last i numbers will be sorted
     for j in range(0,(len(arr)-1-i)):

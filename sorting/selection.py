@@ -15,7 +15,7 @@ for i in range(len(arr)-1):
         if arr[j]<arr[smallest]: #finds the index of the lowest element
             smallest=j
         
-        arr[i],arr[smallest]=arr[smallest],arr[i] #brings lowest element to the front
+    arr[i],arr[smallest]=arr[smallest],arr[i] #brings lowest element to the front
 
 print(f"Sorted Array: {arr}")
 
