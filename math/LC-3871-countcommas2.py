@@ -8,7 +8,8 @@ class Solution:
 
     # 4,5,6 digit nos - 1
     # 7 digit nos - 2
-    # count digits floor log10 n + 1, if multple of 3 then quotient -1 many commas else quotient
+    # count digits floor log10 n + 1, if multple of 3 then quotient -1 many commas 2+3
+    # else quotient
     #brute force is absolute shit, TLE, 457/1100 passed
 
 
