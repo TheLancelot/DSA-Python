@@ -1,0 +1,277 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        #demo {
+            font-size: 6vh;
+            color: green;
+        }
+
+        h2 {
+            font-size: 4.8vh;
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+            font-size: 60px;
+            margin-top: 0px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .vietnam {
+            font-size: 6vh;
+            text-align: center;
+        }
+
+        .flag {
+            vertical-align: middle;
+            height: 50px;
+            width: 75px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .column {
+            float: left;
+            width: 20%;
+            padding: 10px;
+        }
+
+        .four-columns {
+             float: left;
+            width: 25%;
+            padding: 10px;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        @media screen and (max-width: 600px) {
+            .column {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="heading">Go Goa Gone</h1>
+    <p id="demo"></p>
+
+    <script>
+        function startTimer(targetDate, elementId) {
+            var countDownDate = new Date(targetDate).getTime();
+            var x = setInterval(function () {
+                var now = new Date().getTime();
+                var distance = countDownDate - now;
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById(elementId).innerHTML = days + "d " + hours + "h " +
+                    minutes + "m " + seconds + "s ";
+
+                if (distance < 0) {
+                    clearInterval(x);
+                    document.getElementById(elementId).innerHTML = "Done and Dusted! Back to work 😥";
+                }
+            }, 1000);
+        }
+
+        function initializePage() {
+            const path = window.location.pathname;
+            if (path === '/tcsw10k') {
+                document.getElementById('heading').textContent = 'Raceday!';
+                const flag = document.createElement('img');
+                flag.src = 'https://tcsworld10k.procam.in/_next/static/media/ProcamBeng_OG.f327e265.jpg';
+                flag.className = 'flag';
+                document.getElementById('heading').appendChild(flag);
+                startTimer("Apr 27, 2025 6:00:00", "demo");
+            }   else if (path === '/vdhm') {
+                document.getElementById('heading').textContent = 'Raceday!';
+                const flag = document.createElement('img');
+                flag.src = 'https://vdhmcms.tinglabs.in/uploads/vdhm_2026_login_logo_70723c568d.svg';
+                flag.className = 'flag';
+                document.getElementById('heading').appendChild(flag);
+                startTimer("Oct 18, 2026 5:30:00", "demo");
+
+                const planColumn = document.createElement('div');
+                planColumn.className = 'column';
+                const planList = document.createElement('ul');
+                ['run HM', 'recovery beer', 'catch bus to mussorie'].forEach(item => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = item;
+                    planList.appendChild(listItem);
+                });
+                planColumn.appendChild(planList);
+                document.body.appendChild(planColumn);
+                
+            } else if (path === '/v') {
+                document.getElementById('heading').textContent = 'Vietnam hehehehe ';
+                const flag = document.createElement('img');
+                flag.src = 'https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg';
+                flag.className = 'flag';
+                document.getElementById('heading').appendChild(flag);
+
+                startTimer("Dec 21, 2024 13:00:00", "demo");
+
+                const iframe = document.createElement('iframe');
+                iframe.src = 'https://www.pictramap.com/app/view?p=0bb6d2&paused=1';
+                iframe.style.minHeight = '700px';
+                iframe.style.minWidth = '600px';
+                iframe.width = '100%';
+                iframe.height = '100%';
+
+                // Append the iframe to the body or a specific container
+                document.body.appendChild(iframe);
+                
+                // Change column layout to 4 columns
+                 const rowDiv = document.createElement('div');
+                rowDiv.className = 'row';
+
+                const columns = [
+                    { title: "Hanoi (22 Dec 9am -  24 Dec 7am)", 
+                     backgroundColor: "#f0acb4",
+                     items: [
+                           "Garmin","Hanoi Train street", "Venice Grand World", "Old Quarter (+beer street?)", "Night Market- Dong Xuan","Twenty Seven Klub shopping", "O2 Space (clubbbing)", "Peri Poo"
+                        ] },
+                    { title: "SaPa (24 Dec 1 pm - 25 Dec 10pm)", 
+                     backgroundColor: "#78E3FD",
+                     items: [
+                            "Fansipan","Rồng Mây Glass Bridge**","Heaven Gate","Moana Sapa", "Alpine Coaster", "Some cafe with super nice condensed milk coffee", "Cat Cat Village (can lite)", "Morning market"
+                        ]},
+                    { title: "Ninh Binh (26 Dec 6am - 27 Dec 11pm)", 
+                     backgroundColor: "#D3D3D3",
+                     items: [
+                            "Mua Caves", "Trang An Boat Route 3", "Hang Mua viewpoint", "HOA LU ANCIENT CAPITAL", "Phố Cổ Hoa Lư at Night", "Bich Dong Pagoda", "Bai Dinh Pagoda", "Scenic Bike tour"
+                        ]},
+                    { title: "DaNang (28 Dec 12pm - 31 Dec 10am)",
+                     backgroundColor: "#CAFFB9",
+                     items: [
+                            "Dragon Bridge", "Sun World - Ba Na Hills", "Marble mountains" , "My Khe Beach Promenade", "Son Tra Night Market/ Shopping","Caribou Food Truck","Sun Wheel", "Paragliding"
+                        ]},
+                    { title: "Ho Chi Minh (31 Dec 2pm - 4 Jan 7pm)",
+                     backgroundColor: "#FCE883",
+                     items: [
+                            "Cu Chi", "New Year","Bui Vien Walking Street","Nyugen Hue walking street","Black Ball Billiards","Mekong Delta", "Shopping market", "Landmark 81- shop+ice rink", "Saigon Skydeck"
+                        ]},
+                ];
+
+                columns.forEach((column, index) => {
+                    const columnDiv = document.createElement('div');
+                    columnDiv.className = 'column';
+                    columnDiv.style.backgroundColor = column.backgroundColor;
+
+                    const heading = document.createElement('h3');
+                    heading.textContent = column.title;
+
+                    const ul = document.createElement('ul');
+                    ul.style.listStyleType = 'square';
+                    ul.style.fontSize = '3vh';
+
+                    column.items.forEach(item => {
+                        const li = document.createElement('li');
+                        li.textContent = item;
+                        ul.appendChild(li);
+                    });
+
+                    columnDiv.appendChild(heading);
+                    columnDiv.appendChild(ul);
+                    rowDiv.appendChild(columnDiv);
+                });
+
+                document.body.appendChild(rowDiv);
+            } else {
+                startTimer("Jan 12, 2024 16:25:00", "demo");
+
+                const rowDiv = document.createElement('div');
+                rowDiv.className = 'row';
+
+                const columns = [
+                    {
+                        title: "Restaurants &#127860;",
+                        backgroundColor: "#f0acb4",
+                        items: [
+                            "Burger Factory", "Fat Fish", "Brittos",
+                            "Tito's", "Thallassa", "Baba au rhum",
+                            "Martin's Corner", "Club Cubana", "Angry Sardaar",
+                            "The Baga Deck", "Fisherman's Wharf", "Cafe Lilliput",
+                            "Curlie's Beach Shack", "Purple Martini", "Prana Cafe",
+                            "Old Quarter Hostel Coffee", "Joseph Bar"
+                        ]
+                    },
+                    {
+                        title: "Beaches and Watersports &#127754;",
+                        backgroundColor: "#78E3FD",
+                        items: [
+                            "Baga", "Vagator", "Sinquerim", "Galgibaga",
+                            "Cabo De Rama", "Butterfly", "Palolem",
+                            "Mandarem", "Water Rafting at Valpoi", "Banana Boat",
+                            "Scuba, Parasailing, Snorkelling", "Dolphin Spotting",
+                            "Mandovi River Cruise", "River Rafting"
+                        ]
+                    },
+                    {
+                        title: "SightSeeing &#128247;",
+                        backgroundColor: "#CAFFB9",
+                        items: [
+                            "Fontainhas", "Ronaldo Statue", "Japanese Rope Bondage Workshop",
+                            "Russians doing Aarti", "Devil's Finger", "DudhaSagar Falls/Satrem Falls",
+                            "Trek to Lamgau Caves", "Parra Road", "Arambol Lake",
+                            "Agauda Fort", "Chapora Fort", "Sao Jacinto",
+                            "Bom Jesus Basilica", "Bondla Wildlife Sanctuary",
+                            "Salim Ali Bird Sanctuary", "All about Alcohol museum",
+                            "Museum of Goa", "Scooty Night Rides", "Anjuna Flea market",
+                            "Aprora Night market", "Aprora Go-karting", "Dona Paula",
+                            "Naval Aviation Musuem", "Benz Celebrity wax museum",
+                            "Se Cathedral", "Immaculate Conception Church", "Bits goa",
+                            "Dandeya Bridge"
+                        ]
+                    }
+                ];
+
+                columns.forEach(column => {
+                    const columnDiv = document.createElement('div');
+                    columnDiv.className = 'column';
+                    columnDiv.style.backgroundColor = column.backgroundColor;
+
+                    const heading = document.createElement('h2');
+                    heading.innerHTML = column.title;
+
+                    const ul = document.createElement('ul');
+                    ul.style.listStyleType = 'square';
+                    ul.style.fontSize = '3vh';
+
+                    column.items.forEach(item => {
+                        const li = document.createElement('li');
+                        li.textContent = item;
+                        ul.appendChild(li);
+                    });
+
+                    columnDiv.appendChild(heading);
+                    columnDiv.appendChild(ul);
+                    rowDiv.appendChild(columnDiv);
+                });
+
+                document.body.appendChild(rowDiv);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', initializePage);
+    </script>
+
+</body>
+
+</html>
